@@ -51,3 +51,5 @@ python3 -m pytest mod/tests -q
 - 策略等价于 ThunderAgent 的"容量感知放置 + 暂停/恢复"；
 - 差异：这里不做 KV 搬运，只做**放置与准入**；搬运相关的实验在十月的 M6/M12 文档里，
   结论是"搬不如重算"，除非前缀很长且有明确的回归窗口。
+> 说明：`mod/tests` 只保留能独立运行的测试（策略纯函数 + 放置逻辑，共 15 个用例）。
+> 依赖内部 `executor` 包的测试（`test_logic.py`、`test_keep.py`、`test_ta_overcommit.py`）不在本仓库，因为 executor 代码未随仓库发布。
