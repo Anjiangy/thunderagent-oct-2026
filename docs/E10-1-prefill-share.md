@@ -1,6 +1,6 @@
 # E10-1 — 一个 agent step 里 prefill 占多少
 
-装置：单张 910B2（`10.244.0.61:8110`），Qwen2.5-14B-Instruct，`max_model_len 12288`、`gpu-memory-utilization 0.80`、`--enable-prefix-caching --enforce-eager`；greedy、`ignore_eos` 保证输出 token 数精确。
+装置：单张 910B2（`<POD-L-POD>:8110`），Qwen2.5-14B-Instruct，`max_model_len 12288`、`gpu-memory-utilization 0.80`、`--enable-prefix-caching --enforce-eager`；greedy、`ignore_eos` 保证输出 token 数精确。
 测量两套：客户端首 token 时间（含排队）＋ 引擎计数器 `vllm:request_prefill_time_seconds`（纯 prefill 计算）。
 
 ## 结果（18 格，`data/e10_prefill_share.csv`）

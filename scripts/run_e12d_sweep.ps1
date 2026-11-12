@@ -1,8 +1,8 @@
-﻿$PA='31475' ; $PB='32425' ; $AH='223.92.35.180'
+﻿$PA='31475' ; $PB='32425' ; $AH='<ASCEND-HOST>'
 $out='E:\studyfiles\dsh\Thunderagent\program-executor\data\e12d_sweep.csv'
 "arm,programs,prefix_words,rep,wall_s,dq_a,dh_a,dq_b,dh_b,hit_cluster,tok_per_s,notes" | Set-Content -LiteralPath $out -Encoding UTF8
 function M($port,$url) {
-  $raw = ssh -o BatchMode=yes -p $port root@223.92.35.180 ("curl -s --max-time 6 " + $url) 2>&1
+  $raw = ssh -o BatchMode=yes -p $port root@<ASCEND-HOST> ("curl -s --max-time 6 " + $url) 2>&1
   $q=0.0;$h=0.0
   foreach ($l in ($raw -split "`n")) {
     if ($l -match '^vllm:prefix_cache_queries_total') { $q += [double](($l -split '\s+')[-1]) }
@@ -19,14 +19,14 @@ $arms = @(
 foreach ($PA in $arms) {
   for ($r=1; $r -le $PA.reps; $r++) {
     "[$(Get-Date -Format o)] arm=$($PA.n) progs=$($PA.progs) rep=$r restarting engines"
-    $ra = ssh -o BatchMode=yes -p $PA root@223.92.35.180 'bash /root/e5/engine.sh' 2>&1 | Select-Object -Last 1
-    $rb = ssh -o BatchMode=yes -p $PB root@223.92.35.180 'bash /root/e5/engine.sh' 2>&1 | Select-Object -Last 1
+    $ra = ssh -o BatchMode=yes -p $PA root@<ASCEND-HOST> 'bash /root/e5/engine.sh' 2>&1 | Select-Object -Last 1
+    $rb = ssh -o BatchMode=yes -p $PB root@<ASCEND-HOST> 'bash /root/e5/engine.sh' 2>&1 | Select-Object -Last 1
     "[$(Get-Date -Format o)] A=$ra B=$rb"
-    $up = ssh -o BatchMode=yes -p $PA root@223.92.35.180 ("bash /root/e5/arm.sh " + $PA.n) 2>&1 | Select-Object -Last 1
+    $up = ssh -o BatchMode=yes -p $PA root@<ASCEND-HOST> ("bash /root/e5/arm.sh " + $PA.n) 2>&1 | Select-Object -Last 1
     "[$(Get-Date -Format o)] router=$up"
     $a0 = M $PA 'http://127.0.0.1:8110/metrics'; $b0 = M $PB 'http://127.0.0.1:8110/metrics'
     $t0 = Get-Date
-    $res = ssh -o BatchMode=yes -p 50034 agent-bench@222.20.95.34 ("bash /home/agent-bench/r_arm.sh src/minisweagent/config/extra/" + $PA.cfg + " " + $PA.sl) 2>&1 | Select-Object -Last 2
+    $res = ssh -o BatchMode=yes -p 50034 agent-bench@<TM4> ("bash /home/agent-bench/r_arm.sh src/minisweagent/config/extra/" + $PA.cfg + " " + $PA.sl) 2>&1 | Select-Object -Last 2
     $wall = [int]((Get-Date) - $t0).TotalSeconds
     $a1 = M $PA 'http://127.0.0.1:8110/metrics'; $b1 = M $PB 'http://127.0.0.1:8110/metrics'
     $dqa=$a1[0]-$a0[0]; $dha=$a1[1]-$a0[1]; $dqb=$b1[0]-$b0[0]; $dhb=$b1[1]-$b0[1]

@@ -1,6 +1,6 @@
 ﻿# M8 结果：2×2 的 A 轴为空（低负载下字节放置毫无作用），B 轴没能触发
 
-日期：2026-10-26　pod `coder-user-workplace-lg1-7c786679d8-qg4j8`
+日期：2026-10-26　pod `<POD>`
 引擎：**plain vLLM**（无 KV connector，载体固定 `recompute`），`--max-model-len 16384 --gpu-memory-utilization 0.8`，
 各 **892 块 × 128 = 114,176** token（集群 228,352）
 负载：40 program × 8 轮 × 15 s 空窗、前缀 800 词、`--heavy-frac 0.7 --heavy-mult 3`（30 个重 program ×3 前缀）

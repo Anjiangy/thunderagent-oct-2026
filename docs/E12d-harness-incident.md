@@ -4,7 +4,7 @@
 32 program 的 TA 臂跑了 40+ 分钟没有任何输出，`data/e12d_sweep.csv` 只有表头；tm4 上 `minisweagent.run.extra.swebench` 进程还活着（8 workers），TA `/health` 显示 `programs_count=0`、两张卡 `total=0`。
 
 ## 根因（两层）
-1. **B 卡引擎没起来**（`32425` 上 `health=000`，日志 `RuntimeError: Engine core initialization failed`）。TA 的 backend 列表仍写着 `http://10.244.1.31:8110`，请求打到死 backend 就永久等 → 客户端 8 个 worker 全卡住，TA 侧看不到任何 program（请求还没进路由就被连接卡死）。
+1. **B 卡引擎没起来**（`32425` 上 `health=000`，日志 `RuntimeError: Engine core initialization failed`）。TA 的 backend 列表仍写着 `http://<POD-N-POD>:8110`，请求打到死 backend 就永久等 → 客户端 8 个 worker 全卡住，TA 侧看不到任何 program（请求还没进路由就被连接卡死）。
 2. **扫测脚本的断言不够**：只断言了"`num_gpu_blocks=892` 出现"，而这个值是从 A 的 `/metrics` 拿的，B 死着也能过。
 
 ## 修法

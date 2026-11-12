@@ -8,7 +8,7 @@
 #   bash scripts/run_2x2.sh bytes on    # A1 B1
 #
 # Environment (all optional):
-#   SSH_HOST / SSH_PORT / SSH_USER   default 223.92.35.180:31475:root
+#   SSH_HOST / SSH_PORT / SSH_USER   default <ASCEND-HOST>:31475:root
 #   EXEC_ROOT                        default /root/m6/program-executor
 #   REPS                             default 3
 #   PROGRAMS / TURNS / WORDS / GAP   default 40 / 8 / 2000 / 15
@@ -27,7 +27,7 @@ HEAVY_FRAC=${HEAVY_FRAC:-0.7}
 HEAVY_MULT=${HEAVY_MULT:-3.0}
 SKEW_FRAC=${SKEW_FRAC:-0}
 EXEC_ROOT=${EXEC_ROOT:-/root/m6/program-executor}
-SSH_HOST=${SSH_HOST:-223.92.35.180}
+SSH_HOST=${SSH_HOST:-<ASCEND-HOST>}
 SSH_PORT=${SSH_PORT:-31475}
 SSH_USER=${SSH_USER:-root}
 LOCAL=${LOCAL:-0}

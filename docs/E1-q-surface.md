@@ -1,6 +1,6 @@
 # E1 — 睡着的时候，缓存被谁吃掉了
 
-日期：2026-10-27　容器 B（`coder-user-residency-1-67bbc6745b-p7fhz`，NPU 3，单卡）
+日期：2026-10-27　容器 B（`<POD>`，NPU 3，单卡）
 引擎：纯 vLLM（无 KV connector），`--max-model-len 8192 --gpu-memory-utilization 0.80 --enable-prefix-caching --enforce-eager`
 容量：`946 × 128 = 114,176` token（`vllm:cache_config_info`）
 

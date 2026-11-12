@@ -1,6 +1,6 @@
 ﻿# M2 结果：真 controller 接上 executor
 
-日期：2026-10-23　机器：`223.92.35.180`（Ascend 910B2 × 2，device 0/1）
+日期：2026-10-23　机器：`<ASCEND-HOST>`（Ascend 910B2 × 2，device 0/1）
 
 ## 拓扑
 

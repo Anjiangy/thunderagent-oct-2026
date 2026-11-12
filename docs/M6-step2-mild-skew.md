@@ -1,6 +1,6 @@
 ﻿# Step 2：轻度不均（搬运真的启动了）与 transfer 臂为何作废
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 
 ## 配置
 

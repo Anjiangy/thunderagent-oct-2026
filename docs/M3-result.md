@@ -1,6 +1,6 @@
 ﻿# M3 结果：program 亲和到底值多少
 
-日期：2026-10-23　机器：`223.92.35.180`（Ascend 910B2 × 2，device 0/1）
+日期：2026-10-23　机器：`<ASCEND-HOST>`（Ascend 910B2 × 2，device 0/1）
 链路：`client → controller :9000 → executor :8100 → vLLM :8022 | :8023`
 
 ## 问题

@@ -1,6 +1,6 @@
 # E4 收口：干净引擎下 budget 完全不是杠杆（6 格全部 0 次搬家）
 
-日期：2026-10-28　A=`127.0.0.1:8110`（每次跑前重启，usage 0.0）/ B=`10.244.1.108:8110`（kv_both 14580）
+日期：2026-10-28　A=`127.0.0.1:8110`（每次跑前重启，usage 0.0）/ B=`<POD-H-POD>:8110`（kv_both 14580）
 负载：24 program × 3,200 词（≈5.2k token，需求 125k = **1.09×单卡**），3 轮
 参数：`HOT=1.0`、`COLD=0.55`、`EVICT_RATIO=0`（关闭驱逐证据门，只看 demand）、`MIGRATE_CARRIER=transfer`、`FALLBACK=recompute`
 

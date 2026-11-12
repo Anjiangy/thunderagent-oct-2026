@@ -1,6 +1,6 @@
 # E3d：两跳搬运 vs 单跳 vs 直接重算（成分实测 + 判据）
 
-装置：容器 C（`31631`，`10.244.1.89`，`/dev/davinci3`），plain 引擎 892 块 × 128 = 114,176 token。
+装置：容器 C（`31631`，`<POD-K-POD>`，`/dev/davinci3`），plain 引擎 892 块 × 128 = 114,176 token。
 脚本 `/root/e5/e3d_rehop.py`；度量用 vLLM `/metrics` 差分 + 请求墙钟。
 
 ## 实测成分（同一个 4,527 token 的前缀）

@@ -1,6 +1,6 @@
 ﻿# M6-A 结果：跨卡 KV 搬运在本平台通了（p2p 通道）
 
-日期：2026-10-25　pod：`coder-user-workplace-lg1-6d64964545-xd2rs`（2×910B2）
+日期：2026-10-25　pod：`<POD>`（2×910B2）
 
 ## 结论
 
@@ -44,7 +44,7 @@
 ```
 响应里的 `kv_transfer_params` 就包含了
 ```json
-{"remote_block_ids": [[1..9]], "remote_engine_id": "...", "remote_host": "10.244.1.71",
+{"remote_block_ids": [[1..9]], "remote_engine_id": "...", "remote_host": "<POD-B-POD>",
  "remote_port": 14579, "num_prompt_blocks": 9, "last_token_id": 5430,
  "remote_multi_nodes_meta_mapping": {"0": {"host": "...", "engine_id": "...", "handshake_port": 14579}}}
 ```
@@ -52,7 +52,7 @@
 
 ## 旁证
 
-- 目标端日志：`Connected to segment: 10.244.1.71:20117`（源端传输段），且两个引擎的 KV 内存段都
+- 目标端日志：`Connected to segment: <POD-B-POD>:20117`（源端传输段），且两个引擎的 KV 内存段都
   `register mem addr:... mem type:device`（设备内存注册成功，没走 host 注册）。
 - 两侧周期性打印 `SocketHandShakePlugin: failed to receive handshake message, malformed json`，
   **但不影响搬运**（请求 200、TTFT 正常）——看起来是后台元数据探测打到了非 JSON 端点，属噪声，

@@ -130,7 +130,7 @@
 |---|---|---|---|
 | 首 token（3 次） | 0.228 / 0.197 / 0.196 s | 0.118 / 0.110 / 0.113 s | **1.82×** |
 
-**三条证据**：prefill 日志 `Connected to segment: 10.244.1.71:20117`；decode 侧 `prefix_cache_queries=812` 且 `kv_cache_usage=0`（说明它没本地 prefill）；`kv_load_failure_policy=fail` 下请求成功（取不到就会失败）。
+**三条证据**：prefill 日志 `Connected to segment: <POD-B-POD>:20117`；decode 侧 `prefix_cache_queries=812` 且 `kv_cache_usage=0`（说明它没本地 prefill）；`kv_load_failure_policy=fail` 下请求成功（取不到就会失败）。
 
 **关键死条件**：①角色必须是 `kv_producer`/`kv_consumer`，`kv_both` 不会起 `KVCacheSendingThread`，读侧就永远超时；②`protocol` 必须是 `ascend`（rdma/tcp 在本环境被 `rtsHostRegister` 拒绝）；③`kv_port` 两实例不能相同。
 
@@ -278,7 +278,7 @@
 
 ---
 
-# E 系列（2026-10-27 ~ 10-28，两容器两节点：10.244.1.62 NPU3 ⇄ 10.244.1.9 NPU2）
+# E 系列（2026-10-27 ~ 10-28，两容器两节点：<POD-C-POD> NPU3 ⇄ <POD-D-POD> NPU2）
 
 单卡容量 114,176 token（892 块 × 128）。所有 E 系列都在两侧 `kv_role=kv_both` 的双向拓扑上跑。
 

@@ -1,6 +1,6 @@
 ﻿# M6-B 结果：executor 侧"真搬运迁移"打通（小规模探针）
 
-日期：2026-10-25　pod：`coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod：`<POD>`
 
 ## 改了什么
 

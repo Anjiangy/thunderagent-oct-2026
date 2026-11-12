@@ -5,8 +5,8 @@
 
 | 角色 | 容器 | IP | 卡 | vLLM |
 |---|---|---|---|---|
-| A（producer，prefill 端） | `coder-user-workplace-lg1-747c9f97d-x9qxc` | 10.244.1.62 | NPU3 | 0.23.0 |
-| B（consumer，decode 端） | `coder-user-residency-1-7c755956f9-zlnct` | 10.244.1.54 | NPU2 | 0.23.0 |
+| A（producer，prefill 端） | `<POD>` | <POD-C-POD> | NPU3 | 0.23.0 |
+| B（consumer，decode 端） | `<POD>` | <POD-E-POD> | NPU2 | 0.23.0 |
 
 两侧：`--max-model-len 8192 --gpu-memory-utilization 0.80 --enable-prefix-caching --enforce-eager`，
 `--kv-transfer-config '{"kv_connector":"MooncakeConnectorV1","kv_role":"kv_producer|kv_consumer","kv_buffer_device":"npu","kv_port":14579|14580,...}'`。
@@ -27,7 +27,7 @@
 
 ## 三条证据（缺一不可）
 
-1. B 侧日志：`Connected to segment: 10.244.1.62:20338`、`KV cache transfer for request ... took 228.43 ms. local_ip 10.244.1.54 remote_session_id 10.244.1.62:16410`；
+1. B 侧日志：`Connected to segment: <POD-C-POD>:20338`、`KV cache transfer for request ... took 228.43 ms. local_ip <POD-E-POD> remote_session_id <POD-C-POD>:16410`；
 2. A 侧日志：`Delaying free of 14 blocks for request ...`（源端确实把块留住了等对方取）；
 3. **`vllm:external_prefix_cache_hits_total` 增量 == prompt token 数**（1706/1692/1701），且 B 从未见过这些 prompt。
 

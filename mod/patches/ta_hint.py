@@ -17,7 +17,7 @@ def _ta_hint_enabled() -> bool:
 
 
 def _ta_hint_map() -> dict:
-    """TA_HINT_BACKENDS='a=http://127.0.0.1:8110,b=http://10.244.1.31:8110'"""
+    """TA_HINT_BACKENDS='a=http://127.0.0.1:8110,b=http://<POD-N-POD>:8110'"""
     import os
     out = {}
     for item in os.environ.get("TA_HINT_BACKENDS", "").split(","):

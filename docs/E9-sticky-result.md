@@ -44,10 +44,10 @@ best = min(names, key=lambda n: (effective(n), n))
 ```bash
 # A 机
 cd /root/mod && setsid nohup python3 -u cli.py --listen 9002 --mode sticky \
-  --kill-switch /tmp/mod.kill --card a=http://127.0.0.1:8110 --card b=http://10.244.0.223:8110 \
+  --kill-switch /tmp/mod.kill --card a=http://127.0.0.1:8110 --card b=http://<POD-J-POD>:8110 \
   >/root/mod/sticky.log 2>&1 </dev/null &
 # tm4
-ssh -N -L 9000:localhost:9002 -p 31475 root@223.92.35.180 &
+ssh -N -L 9000:localhost:9002 -p 31475 root@<ASCEND-HOST> &
 MSA_HEAVY_N=6 MSA_HEAVY_MULT=8 /home/agent-bench/env/ta/bin/python -m minisweagent.run.extra.swebench \
   -c src/minisweagent/config/extra/swebench_exec.yaml --split test --filter "$(cat filter_regex.txt)" \
   --slice 0:12 --redo-existing --workers 12

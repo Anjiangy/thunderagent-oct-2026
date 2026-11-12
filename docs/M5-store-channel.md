@@ -1,6 +1,6 @@
 # M5 · Mooncake**Store** 通道（A 存 B 取）实验记录
 
-日期：2026-10-24　机器：升腾 pod `coder-user-workplace-lg1-*`（2×910B2，vLLM 0.23.0，mooncake 0.3.11.post1）
+日期：2026-10-24　机器：升腾 pod `<POD>*`（2×910B2，vLLM 0.23.0，mooncake 0.3.11.post1）
 
 ## 一句话结论
 

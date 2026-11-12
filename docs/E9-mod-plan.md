@@ -9,7 +9,7 @@
 ## 2. 形态：三种调用关系，一种进程
 
 ```
-client → TA(:9000) → mod(:9002) → card-A(:8110) / card-B(:10.244.0.76:8110)
+client → TA(:9000) → mod(:9002) → card-A(:8110) / card-B(:<POD-I-POD>:8110)
 ```
 
 `mod` 是**一个进程、三种模式**（启动参数决定，运行期只读文件开关）：
@@ -36,12 +36,12 @@ client → TA(:9000) → mod(:9002) → card-A(:8110) / card-B(:10.244.0.76:8110
 
 ```bash
 # 1) 两台引擎分别起（单卡各一）
-ssh -p 31475 root@223.92.35.180 'bash /root/e5/start_plain.sh'
-ssh -p 32666 root@223.92.35.180 'bash /root/e5/start_plain.sh'
+ssh -p <SSH-PORT> root@<ASCEND-HOST> 'bash /root/e5/start_plain.sh'
+ssh -p <SSH-PORT> root@<ASCEND-HOST> 'bash /root/e5/start_plain.sh'
 
 # 2) 起 mod（对照臂用 passthrough，实验臂用 affinity+migrate）
 python3 -m mod.cli --listen 9002 --mode affinity --migrate \
-  --card a=http://127.0.0.1:8110 --card b=http://10.244.0.76:8110 \
+  --card a=http://127.0.0.1:8110 --card b=http://<POD-I-POD>:8110 \
   --kill-switch /tmp/mod.kill
 
 # 3) TA 只认识 mod 一个后端

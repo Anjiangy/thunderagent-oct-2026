@@ -1,7 +1,7 @@
 # E4df：双容器双卡下 demand 触发真的会搬，但搬了更差（因为 0.86 还没到容量线）
 
-日期：2026-10-28　后端：A = `223.92.35.180:31475`（`127.0.0.1:8110`，kv_both，kv_port 14579）
-B = `223.92.35.180:31392`（pod `coder-user-residency-1-7cbd5b9c8f-79jn7`，**10.244.1.29:8110**，kv_both，kv_port 14580，max-model-len 24576，util 0.80）
+日期：2026-10-28　后端：A = `<ASCEND-HOST>:31475`（`127.0.0.1:8110`，kv_both，kv_port 14579）
+B = `<ASCEND-HOST>:31392`（pod `<POD>`，**<POD-G-POD>:8110**，kv_both，kv_port 14580，max-model-len 24576，util 0.80）
 executor：`EXECUTOR_MODE=kv`、`MIGRATE_CARRIER=transfer`、`BALANCE=skew`、`HOT=0.75`、`COLD=0.55`、interval 5 s
 负载：18 program × 3,200 词（≈5.2k token/个，需求 ≈94k = 单卡 114k 的 **0.82**），4 轮
 
@@ -32,10 +32,10 @@ executor：`EXECUTOR_MODE=kv`、`MIGRATE_CARRIER=transfer`、`BALANCE=skew`、`H
 ```bash
 # A 侧
 bash /root/e2/start_both_a.sh          # kv_both, kv_port 14579
-# B 侧（ssh -p 31392）
-bash /root/e2/start_b_both.sh          # kv_both, kv_port 14580, 10.244.1.29
+# B 侧（ssh -p <SSH-PORT>）
+bash /root/e2/start_b_both.sh          # kv_both, kv_port 14580, <POD-G-POD>
 # executor（A 侧）
-EXECUTOR_BACKENDS="a=http://127.0.0.1:8110,b=http://10.244.1.29:8110" \
+EXECUTOR_BACKENDS="a=http://127.0.0.1:8110,b=http://<POD-G-POD>:8110" \
 EXECUTOR_MODE=kv EXECUTOR_MIGRATE_CARRIER=transfer EXECUTOR_BALANCE=skew \
 EXECUTOR_BALANCE_MOVE_BUDGET=2 python3 -m uvicorn executor.app:app --port 8100
 BUD=2 N=18 WORDS=3200 TURNS=4 python3 /root/e2/e4d.py

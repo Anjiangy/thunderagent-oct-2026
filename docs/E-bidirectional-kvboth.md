@@ -1,6 +1,6 @@
 # kv_role=kv_both 双向搬运：一个分支 bug，六行补丁
 
-日期：2026-10-28　宿主：A `coder-user-workplace-lg1-596f5d8846-75nts`（31475）、B `coder-user-residency-1-6c46f6d6c7-fnxpt`（10.244.1.9，32102）
+日期：2026-10-28　宿主：A `<POD>`（31475）、B `<POD>`（<POD-D-POD>，32102）
 
 ## 结论先说
 

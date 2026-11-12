@@ -23,7 +23,7 @@
 ## 验证
 
 - 单测：`tests/test_ta_like.py` 6 个（容量恰好装下、短溢出停等、大溢出搬迁、全无空位时停等封顶、不往装不下的卡搬、buffer 计费）→ **全套 50 passed**。
-- 真机（昇腾 31475，A=127.0.0.1:8110、B=10.244.0.114:8110，各 114,176）：
+- 真机（昇腾 31475，A=127.0.0.1:8110、B=<POD-M-POD>:8110，各 114,176）：
   - `/healthz`：`mode=ta_like, capacity {a:114176,b:114176}, in_flight {}, holds 0`；
   - 一次带 `program_id` 的 chat 请求 → `200`，随后 `programs_pinned 1`、`load_tokens {a:39,b:0}`、`in_flight {a:0}` → 计数闭环正确。
 

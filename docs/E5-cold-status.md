@@ -32,7 +32,7 @@ pkill -9 -f 'uvicorn executor.app'; pkill -9 -f ta_launch; pkill -9 -f ThunderAg
 # 2) 起两个单卡 executor
 cd /root/m11/program-executor
 EXECUTOR_BACKENDS="a=http://127.0.0.1:8110"  nohup python3 -m uvicorn executor.app:app --port 8101 &
-EXECUTOR_BACKENDS="a=http://10.244.1.9:8110" nohup python3 -m uvicorn executor.app:app --port 8102 &
+EXECUTOR_BACKENDS="a=http://<POD-D-POD>:8110" nohup python3 -m uvicorn executor.app:app --port 8102 &
 # 3) 起 TA（两后端）
 cd /root/m2 && PYTHONPATH=/root/m2:/root/m2/src nohup python3 ta_launch.py \
   --backends http://127.0.0.1:8101,http://127.0.0.1:8102 --port 9000 &

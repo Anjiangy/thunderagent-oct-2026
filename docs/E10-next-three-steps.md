@@ -47,11 +47,11 @@
 
 ## 附：SWE-bench Pro CPU 工作区（端口 30456）实测
 
-- 主机 `coder-user-swe-bench-1-75d9d5bc4-xd95x`，aarch64，192 核 / 2 TB 内存，python 3.12.13。
+- 主机 `<POD>`，aarch64，192 核 / 2 TB 内存，python 3.12.13。
 - **Docker 可用**：`/usr/local/bin/docker` + DinD socket `/run/swe-pro-docker/docker.sock`，server 29.9.1 **arm64**；`/root/swe-bench/docker-data` 是 data-root。
 - **镜像 0 个、无 `SWE_BENCH_PRO_*` 环境变量、无 `crane`**：模板是"干净"的，需要按 `vllm-hust-benchmark/docs/SWE_BENCH_PRO.zh-CN.md` 的 bootstrap 脚本首次准备（会拉 ARM 任务镜像、下载固定数据与官方 agent 源码）。
 - 网络：pypi 200、api.github 200；huggingface 不可达。
 - 磁盘：`/root` 卷 20 GiB 可用（指南建议 40 GiB），`/data` 是 3.5T 的公共盘（96% 已用）。
 - **与 tm4 的分工**：30456 是 **SWE-bench Pro V1**（8 道 NodeBB 任务、ARM 镜像）的官方 CPU 工作区，**不能**直接接管我们现有的 SWE-bench **lite** 负载（django/astropy 的 x86 镜像在 arm64 上跑不了）。所以它不是 tm4 的替代品，而是"做 Pro 评测"的正确落点。
 - 阻塞项（若要真跑）：① 需 40 GiB 卷或确认镜像体积；② 需要能拉到 ARM 镜像的 registry 或 `crane`；③ Pro V1 数据集需从 ScaleAI 取（含授权），或用模板注入的 `SWE_BENCH_PRO_DATASET_BASE`。
-- NPU 侧现状：`31475` 有 14B 引擎（`:8110` 在跑）；`32072`（`10.244.0.61`、`/dev/davinci2`）**空闲，`:8110` 无服务**——若要用 Pro 跑，需要在这张卡上起一个 OpenAI 兼容服务，并确认 30456 能访问它的 pod IP。
+- NPU 侧现状：`31475` 有 14B 引擎（`:8110` 在跑）；`32072`（`<POD-L-POD>`、`/dev/davinci2`）**空闲，`:8110` 无服务**——若要用 Pro 跑，需要在这张卡上起一个 OpenAI 兼容服务，并确认 30456 能访问它的 pod IP。

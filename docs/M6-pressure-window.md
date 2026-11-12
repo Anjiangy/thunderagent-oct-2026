@@ -1,6 +1,6 @@
 ﻿# 人为制造"搬运环境"：热卡接近满时，平衡器值多少
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 引擎：a = `kv_producer`(:8110)、b = `kv_consumer`(:8111)，各 372 块 × 128 = 47,616 token
 负载：40 program × 8 轮 × 15 s 空窗 × **900 词前缀（≈1561 token/program）**，`--skew-frac 0.92`
 

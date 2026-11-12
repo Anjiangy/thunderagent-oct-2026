@@ -1,6 +1,6 @@
 ﻿# Step 3：真搬运 vs 重放式交接（两组配置，各 280 请求全成功）
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 引擎：a = `kv_producer`(:8110, card0)、b = `kv_consumer`(:8111, card1)，各 372 块 × 128 = 47.6k token
 负载：40 program × 600 词前缀 × 8 轮 × 15 s 空窗；`EXECUTOR_MODE=kv`，唯一变量 `EXECUTOR_MIGRATE_CARRIER`
 

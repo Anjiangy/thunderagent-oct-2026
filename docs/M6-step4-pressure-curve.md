@@ -1,6 +1,6 @@
 ﻿# Step 4：压力—收益曲线（真正挤到 0.75 与超容两档）
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 引擎：a = `kv_producer`(:8110)、b = `kv_consumer`(:8111)，各 372 块 × 128 = 47,616 token
 负载：40 program × 8 轮 × 15 s 空窗；`--skew-frac 0.85` 经 `/seed` 直接钉，**`forced_to_a` 实测 34/40**（两档都是 34）
 臂：`EXECUTOR_MIGRATE_CARRIER=transfer|recompute`，其余完全相同

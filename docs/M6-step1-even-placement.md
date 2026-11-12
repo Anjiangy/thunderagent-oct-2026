@@ -1,6 +1,6 @@
 ﻿# Step 1：均匀铺卡 —— 结论与一个容量墙
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 双臂：`EXECUTOR_MIGRATE_CARRIER=recompute|transfer`，40 program，8 轮，`--skew-frac 0`（不强制倾斜）
 
 ## 结果

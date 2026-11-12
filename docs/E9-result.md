@@ -1,7 +1,7 @@
 # E9 结果：byte-aware Mod 跑通，8 实例上没有优势
 
 日期：2026-10-30
-拓扑：mini-swe-agent → `:9000`（隧道）→ Mod `:9002` → A `127.0.0.1:8110` / B `10.244.0.76:8110`
+拓扑：mini-swe-agent → `:9000`（隧道）→ Mod `:9002` → A `127.0.0.1:8110` / B `<POD-I-POD>:8110`
 Mod 模式：`--mode affinity`（按 Σprompt_tokens 最小的卡落点，粘住）
 
 ## 三组对照（同 8 实例、同 slice 0:8、w8、每跑前重启引擎）
@@ -51,8 +51,8 @@ E9 的 A1/A2/A3 三条都达成（Mod 能起、能拦 kill-switch、能按字节
 ```bash
 # 裸 TA
 PYTHONPATH=/root/m2:/root/m2/src python3 /root/m2/ta_launch.py \
-  --backends http://127.0.0.1:8110,http://10.244.0.223:8110 --port 9001
-ssh -N -L 9000:localhost:9001 -p 31475 root@223.92.35.180 &
+  --backends http://127.0.0.1:8110,http://<POD-J-POD>:8110 --port 9001
+ssh -N -L 9000:localhost:9001 -p 31475 root@<ASCEND-HOST> &
 # Mod
 cd /root/mod && bash start.sh      # --mode affinity, cards a=127.0.0.1:8110 b=<B_ip>:8110
 ```

@@ -1,6 +1,6 @@
 # E3 目的地质量：搬过去的 program 能不能活，跟目的地当时多满无关
 
-装置：新容器 `coder-user-residency-2-55c4b7d9fb-7tfjh`（`/dev/davinci3`，`10.244.1.89`），plain 引擎 `--max-model-len 12288 --gpu-memory-utilization 0.80 --enable-prefix-caching`，**892 块 × 128 = 114,176 token**。
+装置：新容器 `<POD>`（`/dev/davinci3`，`<POD-K-POD>`），plain 引擎 `--max-model-len 12288 --gpu-memory-utilization 0.80 --enable-prefix-caching`，**892 块 × 128 = 114,176 token**。
 探针脚本：`/root/e5/e3_headroom.py`、`e3b_survive.py`、`e3c_killer.py`。度量：vLLM `/metrics` 的 `prefix_cache_{queries,hits}_total` 差分，判定 `dh/dq`。
 
 ## 实验 1：目的地"剩余空间"分四档（先灌满到 r，再搬，再压同等 churn）
@@ -48,4 +48,4 @@
 
 - 单次运行、单卡、合成 filler（无关文本），未做重复；但三组实验的 dq 高度一致（4452~4473），说明装置稳定。
 - `churn 1.20×` 只测了一个点，是"容量以上必死"的存在性证明，没有细扫阈值。
-- 三卡环境已就绪（31631 `10.244.1.89` / 31475 / 30426），但本轮实验只用到一张卡——三卡价值的验证（多目的地选择）留给下一步。
+- 三卡环境已就绪（31631 `<POD-K-POD>` / 31475 / 30426），但本轮实验只用到一张卡——三卡价值的验证（多目的地选择）留给下一步。

@@ -1,6 +1,6 @@
 # M1 实测结果（program-executor）
 
-跑在升腾 `223.92.35.180`，两个 vLLM 实例（`8022` → device 0，`8023` → device 1，
+跑在升腾 `<ASCEND-HOST>`，两个 vLLM 实例（`8022` → device 0，`8023` → device 1，
 Qwen2.5-14B-Instruct，block_size 128，各 892 块）。
 
 ## 1. 逻辑单测

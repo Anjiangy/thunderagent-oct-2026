@@ -1,6 +1,6 @@
 ﻿# M6 总表：三条臂、同一台 pod、同一晚（最终结论）
 
-日期：2026-10-25　pod `coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod `<POD>`
 引擎：a = `kv_producer`(:8110, device 0)、b = `kv_consumer`(:8111, device 1)，各 `372 块 × 128 = 47,616` token
 负载：40 program × 8 轮 × 15 s 空窗；前缀 600 词（≈1050 token/program，每卡 21k / 47.6k）
 裸 TA：`scripts/ta_launch.py --backends 8110,8111`（配置在 import app 之前 set，绕开 app.py 的默认 `localhost:8000` 冻结）

@@ -46,8 +46,8 @@
 ## 怎么跑（服务器回来后）
 
 ```bash
-scp -P 31475 -r tests scripts root@223.92.35.180:/root/m4/program-executor/
-ssh -p 31475 root@223.92.35.180
+scp -P 31475 -r tests scripts root@<ASCEND-HOST>:/root/m4/program-executor/
+ssh -p <SSH-PORT> root@<ASCEND-HOST>
 cd /root/m4/program-executor
 bash scripts/run_compare.sh "16 32 40" 4 2500 skew
 python3 scripts/summarize_compare.py /root/m4/compare

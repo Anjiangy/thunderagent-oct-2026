@@ -1,6 +1,6 @@
 ﻿# M6 结果：专场景下"真搬运"没有赢过"重算"，因为它俩都救不了拥挤
 
-日期：2026-10-25　pod：`coder-user-workplace-lg1-6d64964545-xd2rs`
+日期：2026-10-25　pod：`<POD>`
 双臂：`EXECUTOR_MIGRATE_CARRIER=recompute|transfer`，各 2 次
 
 ## 负载

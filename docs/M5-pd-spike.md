@@ -42,7 +42,7 @@ One request through the proxy (`prompt_tokens = 812`, `completion_tokens = 8`, H
 Three independent traces:
 
 1. the producer log shows the RDMA session to the consumer segment
-   (`Connected to segment: 10.244.1.134:20725`);
+   (`Connected to segment: <POD-A-POD>:20725`);
 2. the decoder never ran a prefill for those 812 tokens — they arrive as already
    computed blocks;
 3. `kv_load_failure_policy='fail'` is the default, so a failed load would have
