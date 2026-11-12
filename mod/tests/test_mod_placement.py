@@ -6,7 +6,7 @@ import pathlib
 import sys
 import types
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parents[1]  # mod/
 
 
 def _stub(name: str, **attrs) -> types.ModuleType:
@@ -24,7 +24,7 @@ def load_mod():
     _stub("fastapi", FastAPI=object, Request=object)
     _stub("fastapi.responses", JSONResponse=object, StreamingResponse=object)
     _stub("httpx", AsyncClient=object)
-    spec = importlib.util.spec_from_file_location("mod_cli", ROOT / "mod" / "cli.py")
+    spec = importlib.util.spec_from_file_location("mod_cli", ROOT / "cli.py")
     mod = importlib.util.module_from_spec(spec)
     sys.modules["mod_cli"] = mod
     assert spec.loader is not None
