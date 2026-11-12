@@ -1,0 +1,5 @@
+group,gap_s,gate,moves_end,pulled_tokens_t1,pulled_tokens_t2,a_hits_t1,a_hits_t2,a_hits_t3,a_hits_t4,sum_p50_s
+1,15,off,4,101,180,101632,13056,100096,100096,3.6
+2,15,on_v1_unknown_zero,4,0,0,58880,0,20096,76032,4.5
+3,15,on_v2_unknown_allow,4,101,180,33536,18048,100096,100096,4.1
+4,4,on_v2_unknown_allow,4,0,0,58880,0,0,0,5.0

@@ -1,0 +1,3 @@
+arm,sum_p50,note
+free,2.169,priming alternated A/B and TA also alternated -> zero mismatch
+pin,2.170,zero mismatch by construction

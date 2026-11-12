@@ -1,0 +1,4 @@
+mode,instances,wall_s,dq_total,hit_cluster,tok_per_s,holds,hold_s,migrations
+sticky,32,433,1929961,0.8216,4454,0,0,
+ta,32,505,1989268,0.8196,3940,0,0,0
+ta_like,32,1087,1958864,0.8181,1801,123,3253.76,0

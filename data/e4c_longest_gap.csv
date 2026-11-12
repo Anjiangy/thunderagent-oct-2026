@@ -1,0 +1,3 @@
+arm,gap_lo,gap_hi,window_min,moves_t3,moves_t4,a_hits_t3,a_hits_t4,a_hits_t5,ext_t3,ext_t4
+off,2,40,0,1,4,72064,94464,89984,4502,13709
+on_longest,2,40,8,1,4,71680,89728,89728,4583,13710

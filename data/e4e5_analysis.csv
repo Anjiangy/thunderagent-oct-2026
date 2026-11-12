@@ -1,0 +1,7 @@
+item,value,source
+pin_gain_median_s,0.276,"cold-mismatch (1.142 -> 0.866)"
+prefill_9k_s,0.67,"E1c linear 73us/token"
+transfer_ratio,0.61,"E-env p2p"
+transfer_cost_s,0.41,"0.61 x 0.67"
+move_cost_moderate_s,0.6,"E2/E4 logs"
+undermove_penalty_s_per_turn,0.70,"E4e budget4 vs 8"

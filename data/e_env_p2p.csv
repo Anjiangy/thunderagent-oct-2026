@@ -1,0 +1,7 @@
+label,t_cold_s,t_prefill_on_src_s,t_move_s,external_hits,tokens
+cold-1,0.226,,,0,0
+cold-2,0.226,,,0,0
+cold-3,0.225,,,0,0
+transfer-1,,0.234,0.139,1706,1706
+transfer-2,,0.226,0.138,1692,1692
+transfer-3,,0.230,0.139,1701,1701

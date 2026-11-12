@@ -1,0 +1,4 @@
+case,topology,wall_s,turns_per_min,rel_ta,p50_s,note
+ta_direct,ta_to_two_engines,307,46.9,1.00,0.19,balanced 71.9k/72.2k
+ta_aggregate,ta_to_one_aggregate_executor,422,34.1,0.73,0.90,card A exceeded; TA saw 228k
+ta_percard,ta_to_two_percard_executors,306,47.1,1.004,0.20,fixed: TA sees 114k per card

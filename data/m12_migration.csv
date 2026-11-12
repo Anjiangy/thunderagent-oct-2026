@@ -1,0 +1,3 @@
+label,balance,moves,programs,pinned_to_a,turns,per_turn_recompute,total_recompute,hit_rate,wall_s
+d-off,off,0,16,16,4,"144086;144086;144086;144086",576344,0.0000,255.0
+d-skew,skew,4,16,16,4,"144102;12846;558;558",158064,0.6625,207.1

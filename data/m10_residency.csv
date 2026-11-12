@@ -1,0 +1,12 @@
+﻿label,pressure_tokens,gap_s,keep_every_s,hit_median,survivors,residents,keep_calls,keep_compute_tokens,pressure_s,filler_requests
+c1-nopressure-gap30,0,30,0,0.9929,10,10,0,0,0,0
+c2-pressure-gap2,200000,2,0,0.0,0,10,0,0,52.0,66
+c3-pressure-gap30,200000,30,0,0.0,0,10,0,0,51.9,66
+c4-pressure-gap30-keep2,200000,30,2,0.9929,10,10,80,,64.2,66
+c5-pressure400-nokeep,400000,30,0,0.0,0,10,0,0,104.4,133
+c6-pressure400-keep2,400000,30,2,0.9929,10,10,86,985462,120.5,133
+c7-pressure400-keep5,400000,30,5,0.9929,10,10,66,882268,122.2,133
+c8-pressure200-keep2,200000,30,2,0.9929,10,10,69,505806,59.9,66
+c9-pressure200-keep5,200000,30,5,0.9929,10,10,50,473896,59.9,66
+c10-pressure250-keep1,250000,30,1,0.9929,10,10,99,615140,81.3,83
+c11-nopressure-keep2,0,30,2,0.9938,10,10,59,2252,0,0

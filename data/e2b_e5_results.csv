@@ -1,0 +1,6 @@
+arm,topology,moves,p50_steady,sum_p50,wall_s,turns_per_min,note
+fixed8,ours_alone,8,0.20,2.7,329,43.8,gap seed differed
+adaptive12,ours_alone,9,0.19,2.7,274,52.6,gap seed differed
+ta_direct,ta_to_two_engines,,0.19,2.7,307,46.9,balanced 71.9k/72.2k
+ta_to_executor_seeded,ta_to_executor,unknown,0.90,7.6,422,34.1,card A exceeded
+ta_to_executor_natural,ta_to_executor,unknown,,,623,23.1,one 600s read timeout

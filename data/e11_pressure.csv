@@ -1,0 +1,3 @@
+mode,instances,prefix_words,wall_s,rc,dq_a,dh_a,dq_b,dh_b,hit_cluster,tok_per_s
+sticky32,32,5000,433.3,0,953010,786048,976951,799616,0.8216,4454
+ta32,32,5000,504.9,0,1123485,915328,865783,715136,0.8196,3940

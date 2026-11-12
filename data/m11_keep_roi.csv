@@ -1,0 +1,4 @@
+label,keep,interval_s,turns,wall_s,total_recompute,per_turn_recompute,hit_rate_overall,flood_tokens,keep_refreshes,keep_computed_tokens,keep_looked_up_tokens
+r-off,off,0,4,198.5,955508,"237316;237392;240400;240400",0.0000,2158011,0,0,0
+r-keep2,on,2,4,190.1,873166,"234332;230664;202740;205430",0.3657,2080560,188,478511,1073199
+r-keep03,on,0.3,4,191.4,884423,"237346;235572;204218;207287",0.4542,2080560,281,695349,1578549

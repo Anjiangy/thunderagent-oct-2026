@@ -1,0 +1,4 @@
+arm,words,turns,budget,moves,a_hits_t4,a_hits_t5,p50_steady,sum_p50,pulled_tokens
+off_b4,4000,10,4,4,96256,0,0.90,6.9,0
+on_b4,4000,10,4,4,96128,0,0.90,,
+off_b8,4000,10,8,8,96384,102400,0.20,2.7,18183

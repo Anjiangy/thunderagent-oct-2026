@@ -1,0 +1,4 @@
+﻿label,keep,interval_s,flood_seconds,flood_requests,hit_rate_median,survivors,refreshes,computed_tokens
+a-off,off,0,18.5,44,0.0000,0,0,0
+a-keep2,on,2,19.6,44,0.9790,10,139,114468
+a-keep1,on,1,19.8,44,0.9790,10,187,123689
